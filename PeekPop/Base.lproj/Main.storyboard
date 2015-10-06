@@ -1,25 +1,146 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b0p-wh-nCr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="yxW-aA-YUU">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="b0p-wh-nCr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AhC-ak-tDu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Xk-jz-sde" kind="relationship" relationship="rootViewController" id="fUL-lY-NBc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UtC-4g-MqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="627"/>
+        </scene>
+        <!--3D touch - Peek Pop Tutorial-->
+        <scene sceneID="zyt-4e-Aca">
+            <objects>
+                <collectionViewController id="0Xk-jz-sde" customClass="PhotoCollectionViewController" customModule="PeekPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Kv7-d8-rCJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m06-Ib-5dN">
+                            <size key="itemSize" width="320" height="240"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="ovh-le-v0f" customClass="PhotoCollectionViewCell" customModule="PeekPop" customModuleProvider="target">
+                                <rect key="frame" x="140" y="64" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n0Z-rq-MKb">
+                                            <rect key="frame" x="5" y="5" width="310" height="230"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="n0Z-rq-MKb" firstAttribute="leading" secondItem="ovh-le-v0f" secondAttribute="leading" constant="5" id="0F0-qD-kMK"/>
+                                    <constraint firstAttribute="trailing" secondItem="n0Z-rq-MKb" secondAttribute="trailing" constant="5" id="3pj-oy-FxL"/>
+                                    <constraint firstItem="n0Z-rq-MKb" firstAttribute="top" secondItem="ovh-le-v0f" secondAttribute="top" constant="5" id="Byr-nB-CVf"/>
+                                    <constraint firstAttribute="bottom" secondItem="n0Z-rq-MKb" secondAttribute="bottom" constant="5" id="jt8-uf-fq2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="n0Z-rq-MKb" id="HjP-gK-WvW"/>
+                                    <segue destination="9py-bF-3Nz" kind="show" identifier="sgPhotoDetail" id="b0C-5F-ZZ5"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="0Xk-jz-sde" id="4sF-nc-BpI"/>
+                            <outlet property="delegate" destination="0Xk-jz-sde" id="2Y7-oV-730"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="3D touch - Peek Pop Tutorial" id="UTf-sq-25I"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="paY-iC-vzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="430" y="627"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="35A-hF-mUq">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="9py-bF-3Nz" customClass="DetailViewController" customModule="PeekPop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NGr-6S-7Og"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ok-ub-P4e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PNu-3V-hfg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-uo-nHW">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="PFl-OJ-Z0J"/>
+                                    <constraint firstAttribute="width" constant="300" id="zlf-bo-Otb"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4T-dH-EYm" userLabel="Caption container">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivg-q4-oyc">
+                                        <rect key="frame" x="270" y="10" width="60" height="20"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ivg-q4-oyc" firstAttribute="centerY" secondItem="y4T-dH-EYm" secondAttribute="centerY" id="G2V-bC-djy"/>
+                                    <constraint firstItem="ivg-q4-oyc" firstAttribute="centerX" secondItem="y4T-dH-EYm" secondAttribute="centerX" id="VJr-eP-FoM"/>
+                                    <constraint firstAttribute="height" constant="40" id="X7h-7J-Bib"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A9Z-uo-nHW" firstAttribute="centerX" secondItem="PNu-3V-hfg" secondAttribute="centerX" id="83r-UD-uch"/>
+                            <constraint firstItem="y4T-dH-EYm" firstAttribute="leading" secondItem="PNu-3V-hfg" secondAttribute="leading" id="K62-5F-7R5"/>
+                            <constraint firstItem="A9Z-uo-nHW" firstAttribute="top" secondItem="PNu-3V-hfg" secondAttribute="topMargin" id="YND-Oq-YiO"/>
+                            <constraint firstAttribute="trailing" secondItem="y4T-dH-EYm" secondAttribute="trailing" id="gep-c5-aTI"/>
+                            <constraint firstItem="9Ok-ub-P4e" firstAttribute="top" secondItem="y4T-dH-EYm" secondAttribute="bottom" id="m73-wQ-2jA"/>
+                            <constraint firstItem="A9Z-uo-nHW" firstAttribute="centerY" secondItem="PNu-3V-hfg" secondAttribute="centerY" id="vgB-ka-P5S"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YND-Oq-YiO"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="captionLabel" destination="ivg-q4-oyc" id="qVq-cW-CSj"/>
+                        <outlet property="imageView" destination="A9Z-uo-nHW" id="vam-KC-xRg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wf-YE-V6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="627"/>
         </scene>
     </scenes>
 </document>
